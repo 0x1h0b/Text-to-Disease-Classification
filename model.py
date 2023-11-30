@@ -12,12 +12,15 @@ class Model(nn.Module):
         self.model = transformers.AutoModel.from_pretrained(self.model_path)
         self.fc_layer = nn.Sequential(
             nn.Dropout(0.3),
-            nn.Linear(1024,self.num_classes),
+            nn.Linear(768,self.num_classes),
             nn.Sigmoid()
         )
     
     def forward(self,ids,mask,token_type_ids,targets=None):
-        _, out = self.model(input_ids=ids,attention_mask=mask,token_type_ids=token_type_ids)
-        print(out,type(out))
-        out = self.fc_layer(out)
-        return out
+        out = self.model(input_ids=ids,attention_mask=mask,token_type_ids=token_type_ids)
+        # out a dict with 2 keys ..odict_keys(['last_hidden_state', 'pooler_output'])
+        pooler_output = out.get('pooler_output')
+        # pooler output dimension is batch_size*768 (thi model ops 1x768 encoding)
+        fc_out = self.fc_layer(pooler_output)
+        # fc out dimension is batch_size*(num_classes)
+        return fc_out
