@@ -2,7 +2,10 @@ import torch
 import torch.nn as nn
 import transformers
 
-
+'''
+ self.model defined here is exclusive to Model class which is only output of bert
+ model that we define and use in Inference class is the final output which includes the fc layers as well
+'''
 
 class Model(nn.Module):
     def __init__(self,model_path,num_classes):

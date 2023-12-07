@@ -71,7 +71,7 @@ def evaluate_model(model,loss_function,valid_data_loader):
 
 
 def cross_validation(df,num_classes,k_fold):
-    epochs = 4  # no of epochs 
+    epochs = 3  # no of epochs 
     MAX_LENGTH = 64 # maxium length of embeddings (input to model)
     tokenizer_path = "bert-base-uncased"  # add tokenizer
     model_path = "bert-base-uncased" # add model path
