@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disease Classification</title>
+  <style>
+    /* CSS styles for the landing page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .main-content {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .description {
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .description1 {
+      margin-bottom: 15px;
+      /* font-style: italic; */
+    }
+
+    .btn {
+      display: block; /* Make the button a block element */
+      margin: 20px auto; /* Center the button horizontally */
+      padding: 10px 20px;
+      text-decoration: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: bottom;
+      bottom: 0;
+      /* width: 100%; */
+      /* display: flex; */
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-info {
+      /* display: flex; */
+      gap: 20px;
+      font-size: small;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .copyright {
+      font-size: 14px;
+      align-items: center;
+    }
+
+    /* Additional style for dropdown/select */
+    select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60%;
+      margin: 10px 0;
+    }
+
+    .dropdown-container {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Text to Disease Classification</h1>
+    <!-- Description in header -->
+    <div class="description1">
+        <p>Formulated a large Language Model (LLM) by fine tuning pre-trained BERT transformer ,that can accurately classify disease based on short description of symptoms.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="main-content">
+        <!-- Brief Description -->
+      <div class="description">
+        <p>-: Select you top 7 symptoms from corresponding dropdown and model will try to predict your disease based on the same :-</p>
+      </div>
+
+      <form>
+        <!-- 10 dropdown/select elements for 10 symptoms -->
+        <!-- Wrap each label and select in a div for proper formatting -->
+        <div class="dropdown-container">
+          <label for="dropdown1">Symptom 1</label>
+          <select id="dropdown1" name="Symptom1">
+            {% for i in range(sym_list|length) %}
+              <option value="{{ sym_list[i] }}">{{ sym_list[i] }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="dropdown-container">
+          <label for="dropdown2">Symptom 2</label>
+          <select id="dropdown2" name="Symptom2">
+            {% for i in range(sym_list|length) %}
+              <option value="{{ sym_list[i] }}">{{ sym_list[i] }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="dropdown-container">
+            <label for="dropdown3">Symptom 3</label>
+            <select id="dropdown3" name="Symptom3">
+            {% for i in range(sym_list|length) %}
+               <option value="{{ sym_list[i] }}">{{ sym_list[i] }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div class="dropdown-container">
+            <label for="dropdown4">Symptom 4</label>
+            <select id="dropdown4" name="Symptom4">
+            {% for i in range(sym_list|length) %}
+               <option value="{{ sym_list[i] }}">{{ sym_list[i] }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div class="dropdown-container">
+            <label for="dropdown5">Symptom 5</label>
+            <select id="dropdown5" name="Symptom5">
+            {% for i in range(sym_list|length) %}
+                <option value="{{ sym_list[i] }}">{{ sym_list[i] }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div class="dropdown-container">
+            <label for="dropdown6">Symptom 6</label>
+            <select id="dropdown6" name="Symptom6">
+            {% for i in range(sym_list|length) %}
+               <option value="{{ sym_list[i] }}">{{ sym_list[i] }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div class="dropdown-container">
+            <label for="dropdown7">Symptom 7</label>
+            <select id="dropdown7" name="Symptom7">
+            {% for i in range(sym_list|length) %}
+              <option value="{{ sym_list[i] }}">{{ sym_list[i] }}</option>
+            {% endfor %}
+            </select>
+        </div>
+    
+
+        <!-- Submit button -->
+        <input type="submit" value="Submit" class="btn">
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="contact-info">
+      <a href="mailto:himanshubag12@gmail.com">himanshubag12@gmail.com</a>
+      <a href="https://www.linkedin.com/in/himanshu-bag" target="_blank">LinkedIn://@himanshu-bag</a>
+      <a href="https://github.com/0x1h0b" target="_blank">GitHub://@0x1h0b</a>
+    </div>
+    <br>
+    <div class="copyright">
+      &copy; 2023, Himanshu Bag
+    </div>
+  </footer>
+</body>
+</html>
