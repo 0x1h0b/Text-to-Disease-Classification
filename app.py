@@ -58,7 +58,7 @@ def get_dis_info(dis_result):
     return res
 
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='templates/static',)
 
 @app.route('/')
 def index():
