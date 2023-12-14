@@ -11,59 +11,45 @@
     <h1>Text to Disease Classification</h1>
     <!-- Description in header -->
     <div class="description1">
-        <p>Formulated a large Language Model (LLM) by fine tuning pre-trained BERT transformer ,that can accurately classify disease based on short description of symptoms.</p>
+        <!-- <p>Formulated a large Language Model (LLM) by fine tuning pre-trained BERT transformer ,that can accurately classify disease based on short description of symptoms.</p> -->
+        <h3 style="text-align: center;"> !!! Top 5 predictions based on your symptoms !!!</h3>
     </div>
   </header>
-
+  {% for i in range(res_dis_name|length) %}
   <div class="info-container">
+    <!-- section for disease name -->
     <div class="section">
-      <div class="section-title">Prediction results</div>
+      <div class="section-title">Disease Name</div>
       <div class="section-description">
-        Description text goes here. Describe the section in a few sentences.
+        <p>{{ res_dis_name[i][0] }} ,  Score : {{ res_dis_name[i][1] }}</p>
       </div>
     </div>
 
+    <!-- section for disease descrption -->
+    <div class="section">
+      <div class="section-title">Description</div>
+      <div class="section-list">
+        {{ res_dis_name[i][2] }}
+      </div>
+    </div>
+
+    <!-- section for disease common symptoms -->
     <div class="section">
       <div class="section-title">Common Symptoms</div>
       <div class="section-list">
-        <ul>
-          <li>Symptom 1</li>
-          <li>Symptom 2</li>
-          <li>Symptom 3</li>
-          <!-- Add more symptoms as needed -->
-        </ul>
+        {{ res_dis_name[i][3] }}
       </div>
     </div>
 
+    <!-- section for disease precautions -->
     <div class="section">
       <div class="section-title">Precautions</div>
       <div class="section-list">
-        <ul>
-          <li>Precaution 1</li>
-          <li>Precaution 2</li>
-          <li>Precaution 3</li>
-          <!-- Add more precautions as needed -->
-        </ul>
+        {{ res_dis_name[i][4] }}
       </div>
     </div>
   </div>
-
-  <div class="container">
-    <div class="main-content">
-        <!-- Brief Description -->
-      <div class="description">
-        <p>-: Here is Your Result :-</p>
-      </div>
-      
-      <div class="">
-        <!-- <h1>{{ res_dis_name }}</h1> -->
-        {% for i in range(res_dis_name|length) %}
-              <h3>{{ res_dis_name[i] }}</h3>
-        {% endfor %}
-      </div>
-      
-    </div>
-  </div>
+  {% endfor %}
 
   <footer>
     <div class="contact-info">
